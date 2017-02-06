@@ -7,9 +7,9 @@ MAINTAINER ybaltouski@gmail.com
 ENV ANSIBLE_TOWER_VER 2.4.1
 ENV PG_DATA /var/lib/postgresql/9.4/main
 
-RUN apt-get install -y software-properties-common \
-    && apt-add-repository ppa:ansible/ansible \
+RUN apt-add-repository ppa:ansible/ansible \
     && apt-get update \
+    && apt-get install -y software-properties-common
     && apt-get install -y ansible
 
 ADD http://releases.ansible.com/awx/setup/ansible-tower-setup-${ANSIBLE_TOWER_VER}.tar.gz /opt/ansible-tower-setup-${ANSIBLE_TOWER_VER}.tar.gz
